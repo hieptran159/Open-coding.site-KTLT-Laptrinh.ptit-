@@ -15,20 +15,22 @@ int main(){
   for (int i = 2; i <= N; i++) {
     check[i] = true;
   }
-  for (int i = 2; i <= N; i++) {
+  check[0] = false;
+  check[1] = false;
+  for (int i = 2; i*i <= N; i++) {
     if (check[i] == true) {
-      for (int j = 2 * i; j <= N; j += i) {
+      for (int j = i * i; j <= N; j += i) {
         check[j] = false;
       }
     }
   }
-
     int t; cin >>t;
    	while(t--){
         int n, cnt=0;
         cin >>n;
         for(int i = 1; i <= n; ++i){
             if(check[i]== true && check1(i)==true) cnt++;
+            //if(a[i] == -1) cnt++;
         }
         cout <<cnt <<endl;
 

@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+#define ll unsigned long long
+const int MOD=1e9+7;
+using namespace std;
+
+int t;
+ll a, b, c;
+ll kq(ll a, ll n){
+    if(n==0) return 1;
+    if(n==1) return a;
+    if(n%2 == 0){
+        ll tmp=kq(a,n/2);
+        return (tmp*tmp)%MOD;
+    }
+    else{
+        ll tmp = kq(a,n/2);
+        return ((a*tmp)%MOD*tmp)%MOD;
+    }
+}
+int main(){
+  cin >> t;
+  while(t--){
+    cin >>a >>b;
+    cout <<kq(a,b) <<'\n';
+
+  }
+	return 0;
+}

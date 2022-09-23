@@ -1,3 +1,2 @@
 # Open-coding.site
-collab Le Duy Anh & Tran Xuan Bach from IT1 HUST
-hand made a few
+collab Le Duy Anh IT1 HUST

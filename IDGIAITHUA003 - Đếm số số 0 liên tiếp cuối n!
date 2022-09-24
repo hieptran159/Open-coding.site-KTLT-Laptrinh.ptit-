@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+#define ll long long
+
+using namespace std;
+
+ll n;
+int Count(ll n){
+    int cnt=0;
+    while(n >= 5){
+        n/=5;
+        cnt++;
+    }
+    return cnt;
+}
+int main()
+{
+
+    ios_base::sync_with_stdio(0),cin.tie(0),cout.tie(0);
+    //freopen("input.txt","r",stdin);
+    //freopen("output.txt","w",stdout);
+    int t; cin >>t;
+    while(t--){
+        cin >>n;
+        ll ans = 0;
+        for(int i = 1; i <= Count(n); ++i){
+            ans += n/(pow(5,i));
+        }
+        cout <<ans<<'\n';
+    }
+   return 0;
+}

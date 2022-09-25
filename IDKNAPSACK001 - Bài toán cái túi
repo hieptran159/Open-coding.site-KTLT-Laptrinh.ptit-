@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define fi first
+#define se second
+#define f(i,a,b) for(int i=a; i<=b; ++i)
+#define fn(i,a,b) for(int i=a; i>=b; --i)
+const int MOD=1e9+7;
+using namespace std;
+
+int t, n, w, a[30], c[30], dp[30][30005];
+
+
+int main() {
+  ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+  cin >> t;
+  while(t--){
+    cin >> n >> w;
+    f(i,1,n) cin >> a[i];
+    f(i,1,n) cin >> c[i];
+    f(i,1,n){
+      f(j,1,w){
+        if(j>=a[i]) dp[i][j]=max(dp[i-1][j],dp[i-1][j-a[i]]+c[i]);
+        else dp[i][j]=dp[i-1][j];
+      }
+    }
+    cout<<dp[n][w]<<'\n';
+  }
+return 0;
+}

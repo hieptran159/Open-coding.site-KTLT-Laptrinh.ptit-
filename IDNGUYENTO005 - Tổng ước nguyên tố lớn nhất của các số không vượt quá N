@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define fi first
+#define se second
+#define f(i,a,b) for(int i=a; i<=b; ++i)
+#define fn(i,a,b) for(int i=a; i>=b; --i)
+const int MOD=1e9+7;
+using namespace std;
+
+ll t, n, check[1000005], c, snt[100005], uoc[1000005], m=5e5, ans[1000005];
+int main() {
+  ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+  check[1]=1;
+  for(int i=2; i*i<=m; ++i){
+    if(check[i]==0) for(int j=i*i; j<=m; j+=i) check[j]=1;
+  }
+  for(int i=m; i>=2; --i) if(check[i]==0) snt[++c]=i;
+  f(i,1,c){
+    int tmp=snt[i];
+    while(tmp<=m){
+        if(uoc[tmp]==0){
+        uoc[tmp]=snt[i];
+        }
+        tmp+=snt[i];
+    }
+  }
+  //f(i,2,20)cout<<uoc[i]<<'\n';
+  f(i,1,m) ans[i]=ans[i-1]+uoc[i];
+  cin >> t;
+  while(t--){
+    cin >> n;
+    cout << ans[n] <<'\n';
+  }
+return 0;
+}

@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define fi first
+#define se second
+#define f(i,a,b) for(int i=a; i<=b; ++i)
+#define fn(i,a,b) for(int i=a; i>=b; --i)
+const int MOD=1e9+7;
+using namespace std;
+
+int t, a, b, x, y;
+stack<int>stx1, stx2, sty1, sty2;
+int main()
+{
+  cin >> t;
+  while(t--){
+    cin >> a >> b;
+    x=a, y=b;
+    while(x){
+      if(x%10==5) stx1.push(3);
+      else stx1.push(x%10);
+      if(x%10==3) stx2.push(5);
+      else stx2.push(x%10);
+      x/=10;
+    }
+    while(!stx1.empty()) x=x*10+stx1.top(), stx1.pop();
+    while(y){
+      if(y%10==5) sty1.push(3);
+      else sty1.push(y%10);
+      if(y%10==3) sty2.push(5);
+      else sty2.push(y%10);
+      y/=10;
+    }
+    while(!sty1.empty()) y=y*10+sty1.top(), sty1.pop();
+    cout<<x+y<<" ";
+    x=0, y=0;
+    while(!stx2.empty()) x=x*10+stx2.top(), stx2.pop();
+    while(!sty2.empty()) y=y*10+sty2.top(), sty2.pop();
+    cout<<x+y<<'\n';
+  }
+    return 0;
+}

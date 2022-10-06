@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define fi first
+#define se second
+#define f(i,a,b) for(int i=a; i<=b; ++i)
+#define fn(i,a,b) for(int i=a; i>=b; --i)
+const int MOD=1e9+7;
+using namespace std;
+
+string s, t;
+int main()
+{
+  cin >> s >> t;
+  int c=0;
+  f(i,0,t.length()-1){
+    if(t[i]==s[c]) c++;
+  }
+  if(c==s.length()) cout<<"true";
+  else cout<<"false";
+return 0;
+}

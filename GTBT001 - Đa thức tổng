@@ -1,0 +1,19 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int n;
+double x;
+int main(){
+    int t;
+    cin >> t;
+    while(t--){
+        cin >> n >> x;
+        float sum=0, tmp=1, mau=0;
+        for(int i=1; i<=n; ++i){
+            tmp*=x; mau+=i;
+            sum+=tmp/mau;
+        }
+        cout<<fixed<<setprecision(3)<<sum<<'\n';
+    }
+    return 0;
+}

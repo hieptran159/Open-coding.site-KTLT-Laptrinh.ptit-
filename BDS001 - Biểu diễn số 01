@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+#define ll unsigned long long
+#define fi first
+#define se second
+#define f(i,a,b) for(int i=a; i<=b; ++i)
+#define fn(i,a,b) for(int i=a; i>=b; --i)
+const int MOD=1e9+7;
+using namespace std;
+
+ll a[1000005];
+ll solve(ll n){
+	memset(a, 0, sizeof(a));
+    a[0] = 1;
+    f(i, 1, n)
+        f(j, i, n)
+            a[j] = (a[j] + a[j - i]) % MOD;
+    return  (a[n] % MOD) - 1;
+}
+int main()
+{
+  ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+  int t;
+  cin >> t;
+  while(t--){
+  	ll n;
+  	cin >>n;
+  	cout <<solve(n)<<'\n';
+  }
+return 0;
+}
